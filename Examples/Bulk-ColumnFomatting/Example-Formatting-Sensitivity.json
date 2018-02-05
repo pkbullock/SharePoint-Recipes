@@ -83,82 +83,8 @@
             "style": {
                 "display": "inline-block",
                 "padding": "0 4px"
-            },
-            "attributes": {
-                "iconName": {
-                    "operator": "?",
-                    "operands": [
-                        {
-                            "operator": "==",
-                            "operands": [
-                                {
-                                    "operator": "toString()",
-                                    "operands": [
-                                        "@currentField"
-                                    ]
-                                },
-                                "Official"
-                            ]
-                        },
-                        "CheckMark",
-                        {
-                            "operator": "?",
-                            "operands": [
-                                {
-                                    "operator": "==",
-                                    "operands": [
-                                        {
-                                            "operator": "toString()",
-                                            "operands": [
-                                                "@currentField"
-                                            ]
-                                        },
-                                        "Official-Sensitive"
-                                    ]
-                                },
-                                "Forward",
-                                {
-                                    "operator": "?",
-                                    "operands": [
-                                        {
-                                            "operator": "==",
-                                            "operands": [
-                                                {
-                                                    "operator": "toString()",
-                                                    "operands": [
-                                                        "@currentField"
-                                                    ]
-                                                },
-                                                "Secret"
-                                            ]
-                                        },
-                                        "Error",
-                                        {
-                                            "operator": "?",
-                                            "operands": [
-                                                {
-                                                    "operator": "==",
-                                                    "operands": [
-                                                        {
-                                                            "operator": "toString()",
-                                                            "operands": [
-                                                                "@currentField"
-                                                            ]
-                                                        },
-                                                        "Top Secret"
-                                                    ]
-                                                },
-                                                "Warning",
-                                                "ErrorBadge"
-                                            ]
-                                        }
-                                    ]
-                                }
-                            ]
-                        }
-                    ]
-                }
             }
+            
         },
         {
             "elmType": "span",
