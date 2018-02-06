@@ -1,5 +1,5 @@
 # ----------------------------------------------------------------------------
-# Bulk adding/updating lists with custom formatting
+# Updating site column with custom formatting
 # Created:      Paul Bullock
 #               2018 CaPa Creative Ltd
 # Date:         05/02/2018s
@@ -20,41 +20,9 @@
 
 
 # Connect to SharePoint
-Connect-PnPOnline -Url 'https://<tenant>/sites/DemoColumnFormatting' -ErrorAction Stop
+Connect-PnPOnline -Url 'https://<tenant>.sharepoint.com/sites/DemoColumnFormatting' -ErrorAction Stop
 
-# Setup for example
-# --------------------
-
-# Xml Definition for Site Column
-$xml = @'
-<Field Type="Choice" Name="demo_sensitivity" 
-    DisplayName="Demo Sensitivity" 
-    ID="{7931e8f5-e9c2-4f88-bf45-fbcd53fbd042}" 
-    Group="Demo Columns" 
-    Required="FALSE" 
-    StaticName="demo_sensitivity">
-        <CHOICES>
-            <CHOICE>Official</CHOICE>
-            <CHOICE>Official-Sensitive</CHOICE>
-            <CHOICE>Secret</CHOICE>
-            <CHOICE>Top Secret</CHOICE>
-        </CHOICES>
-    </Field>
-'@
-
-# Add column to the site
-Add-PnPFieldFromXml -FieldXml $xml
-
-# This is an example library
-# Add Library
-New-PnPList -Title "Demo Library" -Url "demolibrary" -Template DocumentLibrary
-
-# Add Site Column To Library
-$list = Get-PnPList -Identity "Demo Library"
 $field = Get-PnPField -Identity "Demo Sensitivity"
-
-Add-PnPField -List $list -Field $field
-
 
 # Update field using internal name
 $field | Set-PnPField -UpdateExistingLists `
