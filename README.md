@@ -25,3 +25,6 @@ A collection of useful PowerShell Scripts and recipes
 
 * Listing all the principals used in your tenant - "List-AppPrinciples.ps1"
 
+
+"Sharing is caring"
+
