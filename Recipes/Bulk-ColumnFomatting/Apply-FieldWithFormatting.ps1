@@ -14,7 +14,7 @@
 # OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 # SOFTWARE.
 #
-# Useful reference: https://github.com/SharePoint/PnP-PowerShell/blob/master/Documentation/readme.md
+# Useful reference: https://capa.ltd/pnp-posh-docs
 #
 # ----------------------------------------------------------------------------
 

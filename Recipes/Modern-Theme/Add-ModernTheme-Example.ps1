@@ -72,18 +72,7 @@ $ThemePalette = HashToDictionary(
   
   # Adds Theme to the tenant, Use -overwrite to update theme 
   Add-SPOTheme -Name "Hot Pink" -Palette $ThemePalette -IsInverted $false 
-
-  # Hide default themes
-  # Set-HideDefaultThemes $true
-
-  # Restore Default Themes
-  # Set-HideDefaultThemes $true
   
-  # Gets all themes
-  #Get-SPOTheme
-
-  # Removes custom theme
-  #Remove-SPOTheme -Name "Custom Theme Name"
   
   Write-Host "Done! :)" -ForegroundColor Green
   
