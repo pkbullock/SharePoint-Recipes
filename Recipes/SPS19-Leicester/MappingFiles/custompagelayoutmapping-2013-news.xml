@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PublishingPageTransformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.dev.office.com/PnP/2019/03/PublishingPageTransformationSchema">
+  <PageLayouts>
+   
+    <PageLayout Name="NewsPageLayout" AssociatedContentType="" PageLayoutTemplate="AutoDetect" PageHeader="Custom">
+      <Header Type="CutInShape" Alignment="Left" ShowPublishedDate="true">
+        <Field Name="ArticleByLine" HeaderProperty="TopicHeader" Functions="" />
+        <Field Name="PublishingContact" HeaderProperty="Authors" Functions="ToAuthors({PublishingContact})" />
+        <Field Name="PublishingRollupImage" HeaderProperty="ImageServerRelativeUrl" Functions="StaticString('https://contoso.sharepoint.com/sites/PnPKatchup-News/SiteAssets/coffee-break.jpg')" />
+      </Header>
+      <MetaData>
+        <Field Name="Title" TargetFieldName="" Functions="" />
+        <Field Name="IntranetKeywords" TargetFieldName="" Functions="" />
+        <Field Name="PublishingIsFurlPage" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContentAuthor" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContentPublishingDate" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContentCategory" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContentLanguage" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContentAssociationKey" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContentType" TargetFieldName="" Functions="" />
+        <Field Name="IntranetIsNewsOnTop" TargetFieldName="" Functions="" />
+        <Field Name="IntranetContact" TargetFieldName="" Functions="" />
+        <Field Name="IntranetAllowPageComments" TargetFieldName="" Functions="" />
+        <Field Name="PublishingPageImage" TargetFieldName="BannerImageUrl" Functions="ToPreviewImageUrl({PublishingPageImage})" />
+
+      </MetaData>
+      <WebParts>
+        <Field Name="PublishingPageImage" TargetWebPart="SharePointPnP.Modernization.WikiImagePart" Row="1" Column="2">
+          <Property Name="ImageUrl" Type="string" Functions="ToImageUrl({PublishingPageImage})" />
+          <Property Name="AlternativeText" Type="string" Functions="ToImageAltText({PublishingPageImage})" />
+          <Property Name="Anchor" Type="string" Functions="ToImageAnchor({PublishingPageImage})" />
+          <Property Name="Caption" Type="string" Functions="ToImageCaption({PublishingImageCaption})" />
+        </Field>
+        <Field Name="PublishingPageContent" TargetWebPart="SharePointPnP.Modernization.WikiTextPart" Row="1" Column="1">
+          <Property Name="Text" Type="string" />
+        </Field>
+      </WebParts>
+    </PageLayout>
+  </PageLayouts>
+</PublishingPageTransformation>

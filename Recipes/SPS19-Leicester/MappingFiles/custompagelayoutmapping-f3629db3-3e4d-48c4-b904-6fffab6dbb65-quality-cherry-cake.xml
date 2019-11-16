@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PublishingPageTransformation xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://schemas.dev.office.com/PnP/2019/03/PublishingPageTransformationSchema">
+  <PageLayouts>
+    <PageLayout Name="CustomRecipePageLayout" AssociatedContentType="" PageLayoutTemplate="AutoDetect" PageHeader="Custom">
+      <SectionEmphasis>
+        <Section Row="3" Emphasis="Neutral" />
+      </SectionEmphasis>
+      <Header Type="ColorBlock" Alignment="Left" ShowPublishedDate="false">
+        <Field Name="PublishingRollupImage" HeaderProperty="ImageServerRelativeUrl" Functions="StaticString('https://contoso.sharepoint.com/sites/PnPKatchup/SiteAssets/Images/christmas-banner.jpg')" />
+        <Field Name="ArticleByLine" HeaderProperty="TopicHeader" Functions="" />
+        <Field Name="PublishingContact" HeaderProperty="Authors" Functions="ToAuthors({PublishingContact})" />
+      </Header>
+      <MetaData>
+        <Field Name="Title" TargetFieldName="" Functions="" />
+        <Field Name="Comments" TargetFieldName="" Functions="" />
+        <Field Name="PublishingStartDate" TargetFieldName="" Functions="" />
+        <Field Name="PublishingExpirationDate" TargetFieldName="" Functions="" />
+        <Field Name="PublishingContactEmail" TargetFieldName="" Functions="" />
+        <Field Name="PublishingContactName" TargetFieldName="" Functions="" />
+        <Field Name="PublishingContactPicture" TargetFieldName="" Functions="" />
+        <Field Name="PublishingIsFurlPage" TargetFieldName="" Functions="" />
+        <Field Name="ArticleStartDate" TargetFieldName="" Functions="" />
+        <Field Name="PublishingPageImage" TargetFieldName="BannerImageUrl" Functions="ToPreviewImageUrl({PublishingPageImage})" />
+      </MetaData>
+      <WebParts>
+        <Field Name="PublishingPageImage" TargetWebPart="SharePointPnP.Modernization.WikiImagePart" Row="1" Column="2">
+          <Property Name="ImageUrl" Type="string" Functions="ToImageUrl({PublishingPageImage})" />
+          <Property Name="AlternativeText" Type="string" Functions="ToImageAltText({PublishingPageImage})" />
+          <Property Name="Anchor" Type="string" Functions="ToImageAnchor({PublishingPageImage})" />
+          <Property Name="Caption" Type="string" Functions="ToImageCaption({PublishingImageCaption})" />
+        </Field>
+        <Field Name="PublishingPageContent" TargetWebPart="SharePointPnP.Modernization.WikiTextPart" Row="1" Column="1">
+          <Property Name="Text" Type="string" />
+        </Field>
+      </WebParts>
+      <WebPartZones>
+        <WebPartZone ZoneIndex="0" ZoneId="x00001a" Row="2" Column="1" />
+        <WebPartZone ZoneIndex="0" ZoneId="x00002b" Row="2" Column="2" />
+        <WebPartZone ZoneIndex="0" ZoneId="x00003c" Row="1" Column="1" />
+        <WebPartZone ZoneIndex="0" ZoneId="x00004d" Row="1" Column="1" />
+      </WebPartZones>
+      <FixedWebParts>
+        <WebPart Type="Microsoft.SharePoint.WebPartPages.ImageWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" Row="3" Column="1">
+          <Property Name="runat" Type="string" Value="server" />
+          <Property Name="imagelink" Type="string" Value="/SiteCollectionImages/hero.jpg" />
+          <Property Name="alternativetext" Type="string" Value="Drone flying in the air" />
+          <Property Name="verticalalignment" Type="string" Value="Middle" />
+          <Property Name="horizontalalignment" Type="string" Value="Center" />
+          <Property Name="backgroundcolor" Type="string" Value="transparent" />
+          <Property Name="title" Type="string" Value="Let's go fly a drone" />
+          <Property Name="frametype" Type="string" Value="None" />
+          <Property Name="suppresswebpartchrome" Type="string" Value="False" />
+          <Property Name="description" Type="string" Value="Lets take to the skies with our new drone" />
+          <Property Name="isincluded" Type="string" Value="True" />
+          <Property Name="zoneid" Type="string" Value="" />
+          <Property Name="partorder" Type="string" Value="0" />
+          <Property Name="framestate" Type="string" Value="Normal" />
+          <Property Name="allowremove" Type="string" Value="True" />
+          <Property Name="allowzonechange" Type="string" Value="True" />
+          <Property Name="allowminimize" Type="string" Value="True" />
+          <Property Name="allowconnect" Type="string" Value="True" />
+          <Property Name="allowedit" Type="string" Value="True" />
+          <Property Name="allowhide" Type="string" Value="True" />
+          <Property Name="isvisible" Type="string" Value="True" />
+          <Property Name="catalogiconimageurl" Type="string" Value="/_layouts/15/images/msimagel.gif" />
+          <Property Name="detaillink" Type="string" Value="" />
+          <Property Name="helplink" Type="string" Value="" />
+          <Property Name="helpmode" Type="string" Value="Modeless" />
+          <Property Name="dir" Type="string" Value="Default" />
+          <Property Name="partimagesmall" Type="string" Value="" />
+          <Property Name="missingassembly" Type="string" Value="Cannot import this Web Part." />
+          <Property Name="partimagelarge" Type="string" Value="/_layouts/15/images/msimagel.gif" />
+          <Property Name="isincludedfilter" Type="string" Value="" />
+          <Property Name="exportcontrolledproperties" Type="string" Value="True" />
+          <Property Name="connectionid" Type="string" Value="00000000-0000-0000-0000-000000000000" />
+          <Property Name="id" Type="string" Value="g_4c8dec0d_e920_4c7e_bdfa_6532864b3904" />
+          <Property Name="exportmode" Type="string" Value="All" />
+          <Property Name="__markuptype" Type="string" Value="vsattributemarkup" />
+          <Property Name="__webpartid" Type="string" Value="{4c8dec0d-e920-4c7e-bdfa-6532864b3904}" />
+          <Property Name="webpart" Type="string" Value="true" />
+          <Property Name="height" Type="string" Value="" />
+          <Property Name="width" Type="string" Value="" />
+        </WebPart>
+        <WebPart Type="Microsoft.SharePoint.WebPartPages.ContentEditorWebPart, Microsoft.SharePoint, Version=16.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c" Row="3" Column="1">
+          <Property Name="TITLE" Type="string" Value="Example Embedded Web Content Editor" />
+          <Property Name="FRAMETYPE" Type="string" Value="None" />
+          <Property Name="PARTIMAGELARGE" Type="string" Value="/_layouts/15/images/mscontl.gif" />
+          <Property Name="ID" Type="string" Value="g_db666743_4c5b_4a21_a9cf_7a199ce19a60" />
+          <Property Name="CONTENT" Type="string" Value="We are not responsible for the outcome of any recipe you try from this site, or any website linked to from this site. You may not achieve the results desired due to variations in ingredients, cooking temperatures, typos, errors, omissions, or individual cooking ability. You should always use your best judgement when cooking with raw ingredients such as eggs, chicken or fish and seek expert advice before beginning if you are unsure. You should always take care not to injure yourself or others on sharp knives or other cooking implements or to burn yourself or others while cooking. You should examine the contents of ingredients prior to preparation and consumption of these recipes in order to be fully aware of and to accurately advise others of the presence of substances which might provoke an adverse reaction in some consumers. Recipes available on this website may not been formally tested by us or for us and we do not provide any assurances nor accept any responsibility or liability with regard to their originality efficacy quality or safety." />
+        </WebPart>
+      </FixedWebParts>
+    </PageLayout>
+  </PageLayouts>
+</PublishingPageTransformation>
