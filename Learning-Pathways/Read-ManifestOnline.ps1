@@ -46,22 +46,70 @@ process {
 
     Write-Host "Getting Manifest.json from PnP CDN"
     $Manifest = Invoke-WebRequest $ManiFestUrl | Select-Object -Expand Content | ConvertFrom-Json
+    $content = ""
 
-    Write-Host "List of Technologies and Subjects" -ForegroundColor Cyan
+    $content = $content + "# Reference Ids for the Learning Portal Content Pack Creation `n`n"
+    $content = $content + "## List of Technologies and Subjects `n`n"
+    
+    $content = $content + "`n| Id | Name | Subjects | `n"
+    $content = $content + "|------|------|---------| `n"
     $Manifest.Technologies | Foreach-Object {
 
-        Write-Host $_.Id $_.Name -ForegroundColor Green
-
+        $content = $content + "| $($_.Id) | $($_.Name) | "
         if($_.Subjects){
-
+            $content = $content + "<table><thead><tr><th>Id</th><th>Name</th></tr></thead><tbody>"
             $_.Subjects | ForEach-Object {
-
-                Write-Host '  Subject: ' $_.Id $_.Name
+                $content = $content + "<tr><td>" + $_.Id + "</td><td>" + $_.Name + "</td></tr>"
             }
+            $content = $content + "</tbody></table> | "
         }
-    } 
+        $content = $content + "`n"
+    }
+    
+    $content = $content + "`n`n## List of Categories and Sub Categories`n`n"
+    
+    $content = $content + "`n| Id | Name | Sub Categories | `n"
+    $content = $content + "|------|------|---------| `n"
+    $Manifest.Categories | Foreach-Object {
+
+        $content = $content + "| $($_.Id) | $($_.Name) | "
+        
+        if($_.SubCategories){
+            $content = $content + "<table><thead><tr><th>Id</th><th>Name</th></tr></thead><tbody>"
+            $_.SubCategories | ForEach-Object {
+                $content = $content + "<tr><td>" + $_.Id + "</td><td>" + $_.Name + "</td></tr>"
+            }
+            $content = $content + "</tbody></table> | "
+        }
+        $content = $content + "`n"
+    }
+    
+    $content = $content + "`n`n## List of Audiences`n`n"
+    
+    $content = $content + "| Id | Name |`n"
+    $content = $content + "|----|------|`n"
+    
+    $Manifest.Audiences | Foreach-Object {
+        $content = $content + "| " +  $_.Id + " | " + $_.Name + " | `n"
+    }
+
+    $content = $content + "`n`n## List of Levels`n`n"
+    $content = $content + "| Id | Name |`n"
+    $content = $content + "|----|------|`n"
+    $Manifest.Levels | Foreach-Object {
+        $content = $content + "| " + $_.Id + " | " + $_.Name + " | `n"
+    }
+
+    $content = $content + "`n`n## List of Status Tag`n`n"
+    $content = $content + "| Id | Name |`n"
+    $content = $content + "|----|------|`n"
+    $Manifest.StatusTag | Foreach-Object {
+        $content = $content + "| " + $_.Id + " | " + $_.Name + " |`n"
+    }
+
+    $content
 
 }
 end{
-
+    $content | Out-File -FilePath "$(Get-Location)/Learning-Portal-References.md" -Force
 }
