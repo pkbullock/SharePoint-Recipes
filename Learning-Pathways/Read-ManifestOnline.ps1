@@ -49,6 +49,7 @@ process {
     $content = ""
 
     $content = $content + "# Reference Ids for the Learning Portal Content Pack Creation `n`n"
+    $content = $content + "> Note: This is generated from a PowerShell script, do not update`n> Generated on: $([System.DateTime]::Now)`n"
     $content = $content + "## List of Technologies and Subjects `n`n"
     
     $content = $content + "`n| Id | Name | Subjects | `n"
