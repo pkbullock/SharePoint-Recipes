@@ -112,5 +112,5 @@ process {
 
 }
 end{
-    $content | Out-File -FilePath "$(Get-Location)/learning-portal-references.md" -Force
+    $content | Out-File -FilePath "$(Get-Location)/learning-portal-references.md" -Force -Encoding utf8
 }
