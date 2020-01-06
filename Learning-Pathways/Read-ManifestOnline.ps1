@@ -111,5 +111,5 @@ process {
 
 }
 end{
-    $content | Out-File -FilePath "$(Get-Location)/Learning-Portal-References.md" -Force
+    $content | Out-File -FilePath "$(Get-Location)/learning-portal-references.md" -Force
 }
